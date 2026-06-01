@@ -16,9 +16,7 @@
     --progress-bar: #D19BFF;
 }
 
-/* ==========================================================================
-   2. RESETEO BÁSICO Y CONFIGURACIÓN GENERAL
-   ========================================================================== */
+
 * {
     padding: 0;
     margin: 0;
@@ -36,9 +34,7 @@ body {
     padding: 20px;
 }
 
-/* ==========================================================================
-   3. ENCABEZADO (HEADER)
-   ========================================================================== */
+
 .header {
     width: 100%;
     max-width: 800px;
@@ -74,9 +70,7 @@ body {
     color: var(--text-primary);
 }
 
-/* ==========================================================================
-   4. SECCIÓN DE ANÁLISIS (TEXTAREA Y CONTROLES)
-   ========================================================================== */
+
 .analyze {
     width: 100%;
     max-width: 800px;
@@ -113,7 +107,7 @@ textarea:focus {
     border-color: var(--card-purple);
 }
 
-/* Panel unificado de inputs y tiempo de lectura */
+
 .control-panel {
     display: flex;
     justify-content: space-between;
@@ -150,9 +144,7 @@ textarea:focus {
     white-space: nowrap;
 }
 
-/* ==========================================================================
-   5. TARJETAS DE MÉTRICAS (NÚMERO ARRIBA - TEXTO ABAJO)
-   ========================================================================== */
+
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -166,7 +158,7 @@ textarea:focus {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 8px; /* Ajusta la separación exacta entre el número y el texto */
+    gap: 8px; 
     min-height: 140px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     transition: transform 0.2s ease;
@@ -176,37 +168,52 @@ textarea:focus {
     transform: translateY(-4px);
 }
 
-/* Número grande posicionado arriba de la tarjeta */
+
 .cards p[class^="value"] {
     font-size: 3.5rem;
     font-weight: 700;
     color: #12131A;
     line-height: 1;
-    order: 1; /* Sube al primer nivel visual de Flexbox */
+    order: 1; 
 }
 
-/* Texto descriptivo posicionado abajo del número */
+
 .cards h2 {
     font-size: 1rem;
     color: #12131A;
     font-weight: 500;
     text-transform: none;
     letter-spacing: normal;
-    order: 2; /* Baja al segundo nivel visual de Flexbox */
+    order: 2; 
 }
 
-/* Variantes de color de fondo */
-.purple-card { background-color: var(--card-purple); }
-.orange-card { background-color: var(--card-orange); }
-.pink-card { background-color: var(--card-coral); }
 
-/* ==========================================================================
-   6. SECCIÓN DENSIDAD DE LETRAS (SIN BORDES EXTRAÑOS)
-   ========================================================================== */
+.purple-card {
+     background-color: var(--card-purple); 
+    background-image: url(./assets/1st\ card.png);
+    background-repeat: none;
+    background-position: center;
+    background-size: 100%;
+}
+.orange-card { background-color: var(--card-orange);
+    background-image: url(./assets/2nd\ card.png);
+    background-repeat: none;
+    background-position:center;
+    background-size: 100%;
+
+ }
+.pink-card { background-color: var(--card-coral);
+    background-image: url(./assets/3\ card.png);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: none;
+ }
+
+
 .stadistics {
     margin-top: 40px;
     background-color: var(--bg-card);
-    border: none !important; /* Caja totalmente lisa sin bordes perimetrales */
+    border: none !important; 
     border-radius: 16px;
     padding: 30px;
 }
@@ -217,7 +224,7 @@ textarea:focus {
     font-weight: 500;
 }
 
-/* Cuadrícula rígida de 3 columnas para evitar desbordes */
+
 .Letter-density {
     display: grid;
     align-items: center;
@@ -236,7 +243,7 @@ textarea:focus {
     text-align: right;
 }
 
-/* Barras de progreso */
+
 progress {
     -webkit-appearance: none;
     appearance: none;
@@ -259,7 +266,7 @@ progress::-moz-progress-bar {
     border-radius: 6px;
 }
 
-/* Botón "See more" totalmente limpio, sin bordes de sistema ni fondos grises */
+
 .stadistics button {
     background: none !important;
     border: none !important;
@@ -277,9 +284,7 @@ progress::-moz-progress-bar {
     color: var(--text-primary);
 }
 
-/* ==========================================================================
-   7. RESPONSIVE DESIGN (ADAPTABILIDAD SMARTPHONE)
-   ========================================================================== */
+
 @media (max-width: 600px) {
     .header {
         margin-bottom: 20px;
