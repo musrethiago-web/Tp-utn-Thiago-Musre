@@ -58,7 +58,7 @@ body{
 }
 .header button:hover{
     border-color: var(--text-secondary);
-    color: var(--text-primary)
+    color: var(--text-primary);
 }
 .analyze{
     width: 100%;
@@ -67,24 +67,25 @@ body{
     flex-direction: column;
     gap: 20px;
 }
+
+
 textarea{
     width: 100%;
     height: 200px;
     background-color: var(--bg-card);
     border: 1px solid var(--border-subtle);
     border-radius: 12px;
-    color: var(12px);
-    color: var(--text-primary);
+    color: var(--text-primary); 
     padding: 20px;
     font-family: inherit;
     font-size: 1.1rem;
     resize: vertical;
     outline: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); 
     transition: border-color 0.3s ease;
 }
 
-#textarea:focus {
+textarea:focus {
     border-color: var(--card-purple);
 }
 
@@ -93,17 +94,6 @@ textarea{
    align-items: center;
    gap:20px;    
    flex-wrap: wrap;
-   
-   
-}
-
-.inputs{
-   display: flex;
-   align-items: center;
-   gap:20px;    
-   flex-wrap: wrap;
-   
-   
 }
 
 .analyze p{
@@ -120,27 +110,26 @@ textarea{
     margin-top: 20px;
 }
 .cards article{
-    border-radius: 12x;
+    border-radius: 12px; 
     padding: 24px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 140px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-    
+    transition: transform 0.2s ease; 
 }
 
 .cards article:hover{
-    transform: translate(-4px);
-
+    transform: translateY(-4px); 
 }
+
 .cards h2{
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: #12131A;
     font-weight: 500;
-
 }
 .cards p[class^="value"] {
     font-size: 3.5rem;
@@ -150,34 +139,29 @@ textarea{
     margin-top: 10px;
 }
 
-.purple-card {
-     background-color: var(--card-purple); 
- }
+.purple-card { background-color: var(--card-purple); }
+.orange-card { background-color: var(--card-orange); }
+.pink-card { background-color: var(--card-coral); }
 
-.orange-card {
-     background-color: var(--card-orange); 
- }
 
-.pink-card {
-     background-color: var(--card-coral); 
- }
- .letter-density{
-    display: flex;
+.Letter-density {
+    display: grid;
     align-items: center;
-    justify-content: space-between;
-    gap: 15px;
+    grid-template-columns: 24px 1fr 100px;
+    gap: 16px;
     margin-bottom: 16px;
- }
- progress{
-    flex-grow: 1;
-    appearance: none;
-    height: 12px;
+}
 
- }
- progress::-webkit-progress-bar{
+progress{
+    -webkit-appearance: none;
+    appearance: none; 
+    width: 100%;
+    height: 12px;
+}
+progress::-webkit-progress-bar{
     background-color: var(--bg-main);
     border-radius: 6px;
- }
+}
 progress::-webkit-progress-value{
     background-color: var(--progress-bar);
     border-radius: 6px;
