@@ -1,8 +1,5 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
+@import url('https://googleapis.com');
+
 :root {
     --bg-main: #12131A;
     --bg-card: #1C1F2A;
@@ -10,25 +7,39 @@
     --text-secondary: #B4B7C9;
     --border-subtle: #2A2D3A;
     
-    /* Colores de las tarjetas */
+    /* Colores para las tarjetas de métricas */
     --card-purple: #C99DFF;
     --card-orange: #FFB21E;
     --card-coral: #FF8A65;
     
-    /* Color de barras de progreso */
+    /* Color para las barras de progreso */
     --progress-bar: #D19BFF;
 }
-body{
+
+/* ==========================================================================
+   2. RESETEO BÁSICO Y CONFIGURACIÓN GENERAL
+   ========================================================================== */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
     background-color: var(--bg-main);
     color: var(--text-primary);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
 }
-.header{
+
+/* ==========================================================================
+   3. ENCABEZADO (HEADER)
+   ========================================================================== */
+.header {
     width: 100%;
     max-width: 800px;
     display: flex;
@@ -38,7 +49,8 @@ body{
     border-bottom: 1px solid var(--border-subtle);
     margin-bottom: 40px;
 }
-.logo{
+
+.logo {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -46,21 +58,26 @@ body{
     font-size: 1.2rem;
 }
 
-.header button{
+.header button {
     background-color: var(--bg-card);
     border: 1px solid var(--border-subtle);
-    color:var(--text-secondary);
+    color: var(--text-secondary);
     padding: 8px 16px;
     border-radius: 8px;
     cursor: pointer;
     font-family: inherit;
     transition: all 0.3s ease;
 }
-.header button:hover{
+
+.header button:hover {
     border-color: var(--text-secondary);
     color: var(--text-primary);
 }
-.analyze{
+
+/* ==========================================================================
+   4. SECCIÓN DE ANÁLISIS (TEXTAREA Y CONTROLES)
+   ========================================================================== */
+.analyze {
     width: 100%;
     max-width: 800px;
     display: flex;
@@ -68,20 +85,27 @@ body{
     gap: 20px;
 }
 
+.analyze h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
 
-textarea{
+textarea {
     width: 100%;
     height: 200px;
     background-color: var(--bg-card);
     border: 1px solid var(--border-subtle);
     border-radius: 12px;
-    color: var(--text-primary); 
+    color: var(--text-primary);
     padding: 20px;
     font-family: inherit;
     font-size: 1.1rem;
     resize: vertical;
     outline: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
     transition: border-color 0.3s ease;
 }
 
@@ -89,61 +113,111 @@ textarea:focus {
     border-color: var(--card-purple);
 }
 
-.inputs{
-   display: flex;
-   align-items: center;
-   gap:20px;    
-   flex-wrap: wrap;
+/* Panel unificado de inputs y tiempo de lectura */
+.control-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: -5px;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-.analyze p{
+.inputs {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.inputs label {
     color: var(--text-secondary);
     font-size: 0.95rem;
-    text-align: right;
-    margin-top: -10px;
+    cursor: pointer;
+    margin-left: 6px;
 }
 
-.cards{
+.inputs input[type="checkbox"] {
+    accent-color: var(--card-purple);
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+.reading-time {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+/* ==========================================================================
+   5. TARJETAS DE MÉTRICAS (NÚMERO ARRIBA - TEXTO ABAJO)
+   ========================================================================== */
+.cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
     margin-top: 20px;
 }
-.cards article{
-    border-radius: 12px; 
+
+.cards article {
+    border-radius: 12px;
     padding: 24px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 8px; /* Ajusta la separación exacta entre el número y el texto */
     min-height: 140px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-    transition: transform 0.2s ease; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
 }
 
-.cards article:hover{
-    transform: translateY(-4px); 
+.cards article:hover {
+    transform: translateY(-4px);
 }
 
-.cards h2{
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #12131A;
-    font-weight: 500;
-}
+/* Número grande posicionado arriba de la tarjeta */
 .cards p[class^="value"] {
     font-size: 3.5rem;
     font-weight: 700;
     color: #12131A;
     line-height: 1;
-    margin-top: 10px;
+    order: 1; /* Sube al primer nivel visual de Flexbox */
 }
 
+/* Texto descriptivo posicionado abajo del número */
+.cards h2 {
+    font-size: 1rem;
+    color: #12131A;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: normal;
+    order: 2; /* Baja al segundo nivel visual de Flexbox */
+}
+
+/* Variantes de color de fondo */
 .purple-card { background-color: var(--card-purple); }
 .orange-card { background-color: var(--card-orange); }
 .pink-card { background-color: var(--card-coral); }
 
+/* ==========================================================================
+   6. SECCIÓN DENSIDAD DE LETRAS (SIN BORDES EXTRAÑOS)
+   ========================================================================== */
+.stadistics {
+    margin-top: 40px;
+    background-color: var(--bg-card);
+    border: none !important; /* Caja totalmente lisa sin bordes perimetrales */
+    border-radius: 16px;
+    padding: 30px;
+}
 
+.stadistics h3 {
+    font-size: 1.4rem;
+    margin-bottom: 24px;
+    font-weight: 500;
+}
+
+/* Cuadrícula rígida de 3 columnas para evitar desbordes */
 .Letter-density {
     display: grid;
     align-items: center;
@@ -152,30 +226,76 @@ textarea:focus {
     margin-bottom: 16px;
 }
 
-progress{
+.Letter-density span:first-child {
+    font-weight: 700;
+}
+
+.Letter-density .count {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    text-align: right;
+}
+
+/* Barras de progreso */
+progress {
     -webkit-appearance: none;
-    appearance: none; 
+    appearance: none;
     width: 100%;
     height: 12px;
 }
-progress::-webkit-progress-bar{
+
+progress::-webkit-progress-bar {
     background-color: var(--bg-main);
     border-radius: 6px;
 }
-progress::-webkit-progress-value{
-    background-color: var(--progress-bar);
-    border-radius: 6px;
-}
-progress::-moz-progress-bar{
+
+progress::-webkit-progress-value {
     background-color: var(--progress-bar);
     border-radius: 6px;
 }
 
+progress::-moz-progress-bar {
+    background-color: var(--progress-bar);
+    border-radius: 6px;
+}
+
+/* Botón "See more" totalmente limpio, sin bordes de sistema ni fondos grises */
+.stadistics button {
+    background: none !important;
+    border: none !important;
+    outline: none !important;
+    padding: 0;
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: color 0.2s ease;
+}
+
+.stadistics button:hover {
+    color: var(--text-primary);
+}
+
+/* ==========================================================================
+   7. RESPONSIVE DESIGN (ADAPTABILIDAD SMARTPHONE)
+   ========================================================================== */
 @media (max-width: 600px) {
-    .analyze h1 { 
-        font-size: 1.8rem; 
-    } 
-    .stadistics { 
-        padding: 20px; 
+    .header {
+        margin-bottom: 20px;
+    }
+    
+    .analyze h1 {
+        font-size: 1.8rem;
+    }
+    
+    .stadistics {
+        padding: 20px;
+    }
+    
+    .control-panel {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
     }
 }
