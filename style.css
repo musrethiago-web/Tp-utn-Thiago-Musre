@@ -174,3 +174,24 @@ textarea{
     height: 12px;
 
  }
+ progress::-webkit-progress-bar{
+    background-color: var(--bg-main);
+    border-radius: 6px;
+ }
+progress::-webkit-progress-value{
+    background-color: var(--progress-bar);
+    border-radius: 6px;
+}
+progress::-moz-progress-bar{
+    background-color: var(--progress-bar);
+    border-radius: 6px;
+}
+
+@media (max-width: 600px) {
+    .analyze h1 { 
+        font-size: 1.8rem; 
+    } 
+    .stadistics { 
+        padding: 20px; 
+    }
+}
