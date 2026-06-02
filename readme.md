@@ -56,3 +56,5 @@ Las consultas realizadas a la IA para resolver este bug sugerían modificaciones
 Por otro lado, tuvo problemas tambien con la creacion y organizacion de los commits. Me pasó muchas veces que me encontraba escribiendo codigo y me olvidaba de commitearlo, por lo tanto hay saltos grandes de codigo de un commit a otro. Tambien se puede ver que en un commit el codigo esta escrito de una manera y al siguiente commit esta modificado el codigo, ya que con la ayuda de la IA iba corrigiendo errores que iba teniendo.
 
 Adjunto foto de como quedó el maquetado.
+
+![image alt](https://github.com/musrethiago-web/Tp-utn-Thiago-Musre/blob/69dad6999ef5a6904da5468cf864ccd9d2bc815d/image.png)
