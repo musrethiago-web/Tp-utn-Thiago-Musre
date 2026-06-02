@@ -195,7 +195,8 @@ textarea:focus {
     background-position: center;
     background-size: 100%;
 }
-.orange-card { background-color: var(--card-orange);
+.orange-card { 
+    background-color: var(--card-orange);
     background-image: url(./assets/2nd\ card.png);
     background-repeat: none;
     background-position:center;
